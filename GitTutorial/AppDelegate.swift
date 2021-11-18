@@ -41,12 +41,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-  
-    // 在前景收到通知時所觸發的 function
-        func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-            print("在前景收到通知...")
-            completionHandler([.badge, .sound, .alert])
-        }
     
+    // 在前景收到通知時所觸發的 function
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("在前景收到通知...")
+        completionHandler([.badge, .sound, .alert])
+    }
+    // 點擊通知觸發的事件
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let content: UNNotificationContent = response.notification.request.content
+        
+        completionHandler()
+        
+        // 取出userInfo的link並開啟Facebook
+        let requestUrl = URL(string: content.userInfo["link"]! as! String)
+        UIApplication.shared.open(requestUrl!, options: [:], completionHandler: nil)
+    }
 }
 
+
+//reference -> https://franksios.medium.com/ios-本地通知-local-notification-b25229f279ec

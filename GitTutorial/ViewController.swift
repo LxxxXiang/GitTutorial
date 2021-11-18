@@ -38,6 +38,9 @@ class ViewController: UIViewController {
         let attachment = try! UNNotificationAttachment(identifier: "image", url: imageURL, options: nil)
         content.attachments = [attachment]
         
+        // 設置點擊通知後取得的資訊
+        content.userInfo = ["link" : "https://www.instagram.com/liao_xg"]
+        
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         
         let request = UNNotificationRequest(identifier: "notification", content: content, trigger: trigger)
