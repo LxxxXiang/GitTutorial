@@ -9,7 +9,7 @@ import UIKit
 import UserNotifications
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
     var window: UIWindow?
     
@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("不允許")
             }
         })
+        // 代理 UNUserNotificationCenterDelegate，這麼做可讓 App 在前景狀態下收到通知
+        UNUserNotificationCenter.current().delegate = self
         return true
     }
     
@@ -39,7 +41,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-    
+  
+    // 在前景收到通知時所觸發的 function
+        func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+            print("在前景收到通知...")
+            completionHandler([.badge, .sound, .alert])
+        }
     
 }
 

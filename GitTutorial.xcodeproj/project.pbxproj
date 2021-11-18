@@ -24,6 +24,7 @@
 		0224237F273F9F0C009E957E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02242382273F9F0C009E957E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02242384273F9F0C009E957E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0284CDC32745E7EC00FE5BE5 /* IMG_1655.HEIC */ = {isa = PBXFileReference; lastKnownFileType = file; path = IMG_1655.HEIC; sourceTree = "<group>"; };
 		02C739E927438A5A0057384E /* FileToPull.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = FileToPull.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,6 +58,7 @@
 		02242375273F9F0C009E957E /* GitTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				0284CDC32745E7EC00FE5BE5 /* IMG_1655.HEIC */,
 				02242376273F9F0C009E957E /* AppDelegate.swift */,
 				02242378273F9F0C009E957E /* SceneDelegate.swift */,
 				0224237A273F9F0C009E957E /* ViewController.swift */,
